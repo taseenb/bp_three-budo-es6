@@ -5,14 +5,14 @@ const stats = require('./stats')
 const createBackground = require('./bg/bg')
 
 let time, delta, clock
-let renderer, scene, camera, controls
-let ambientLight, pointLight
+let renderer, scene, camera
 let width, height
 let bg, cube
 
 function init () {
   // Setup ui (optional)
-  const ui = new UI().appendStats(stats.dom).removeLoader()
+  const ui = new UI().appendStats(stats.dom)
+  ui.removeLoader()
 
   // Setup resize events
   window.addEventListener('resize', onResize, false)
@@ -28,7 +28,7 @@ function init () {
   renderer.setSize(width, height)
   document.body.appendChild(renderer.domElement)
   camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 50)
-  controls = new OrbitControls(camera, document.body)
+  const controls = new OrbitControls(camera, document.body)
   camera.position.z = 5
 
   // Background (only on desktop > buggy on mobile)
