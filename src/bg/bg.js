@@ -6,7 +6,6 @@ function createBackground (opt) {
   opt = opt || {}
 
   // Geometry
-  // var geometry = opt.geometry || new THREE.PlaneBufferGeometry(2, 2, 1)
   var geometry = new THREE.Geometry()
   geometry.vertices.push(
     new THREE.Vector3(0, 3, 0),
@@ -14,9 +13,6 @@ function createBackground (opt) {
     new THREE.Vector3(3, -3, 0)
   )
   geometry.faces.push(new THREE.Face3(0, 1, 2))
-
-  // var orientation =
-  //   window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
 
   // Maetrial with default values
   var material = new THREE.RawShaderMaterial({
